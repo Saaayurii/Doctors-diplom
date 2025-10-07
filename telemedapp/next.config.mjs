@@ -3,6 +3,9 @@ const nextConfig = {
   // Disable SWC minification for debugging in production
   swcMinify: false,
 
+  // Включаем standalone output для Docker
+  output: 'standalone',
+
   async rewrites() {
     return [
       {

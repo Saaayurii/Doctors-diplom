@@ -89,19 +89,69 @@
 ---
 ### **Установка для разработчиков**
 
+#### Вариант 1: Запуск с Docker (Рекомендуется)
+
+1. **Клонируйте репозиторий:**
+
+   ```bash
+   git clone https://github.com/innovay.io/TeleMedPilot.git
+   cd TeleMedPilot
+   ```
+
+2. **Настройте переменные окружения:**
+
+   ```bash
+   cp .env.example .env
+   # Отредактируйте .env и добавьте ваш ACCESS_TOKEN_SECRET_KEY
+   ```
+
+3. **Запустите все сервисы с Docker Compose:**
+
+   ```bash
+   docker-compose up -d
+   ```
+
+   Это запустит:
+   - PostgreSQL (порт 5433)
+   - Backend API (порт 4000)
+   - Frontend Next.js (порт 3000)
+
+4. **Проверьте статус контейнеров:**
+
+   ```bash
+   docker-compose ps
+   ```
+
+5. **Доступ к приложению:**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:4000
+   - PostgreSQL: localhost:5433
+
+Подробная документация по Docker в файле [README.Docker.md](./README.Docker.md)
+
+#### Вариант 2: Локальная установка
+
 1. **Клонируйте репозиторий:**
 
    ```bash
    git clone https://github.com/innovay.io/TeleMedPilot.git
    ```
 
-2. **Установите зависимости:**
+2. **Установите зависимости для backend:**
 
    ```bash
+   cd BE
    npm install
    ```
 
-3. **Настройка окружения:**
+3. **Установите зависимости для frontend:**
+
+   ```bash
+   cd ../telemedapp
+   npm install
+   ```
+
+4. **Настройка окружения:**
 
    Создайте файл `.env` и добавьте необходимые переменные окружения (ключи API, строки подключения к базе данных и т.д.).
 
@@ -109,13 +159,29 @@
 
 ### **Запуск приложения**
 
-1. **Запуск сервера разработки:**
+#### С Docker:
+
+```bash
+docker-compose up -d
+```
+
+#### Локально:
+
+1. **Запуск backend:**
 
    ```bash
+   cd BE
+   npm start
+   ```
+
+2. **Запуск frontend:**
+
+   ```bash
+   cd telemedapp
    npm run dev
    ```
 
-2. **Сборка для продакшена:**
+3. **Сборка для продакшена:**
 
    ```bash
    npm run build

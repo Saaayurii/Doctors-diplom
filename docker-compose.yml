@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  # PostgreSQL База данных
+  postgres:
+    image: postgres:16-alpine
+    container_name: doctors-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: telemed_database
+      POSTGRES_USER: telemed_user
+      POSTGRES_PASSWORD: telemed_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - doctors-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U telemed_user -d telemed_database"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend сервис
+  backend:
+    build:
+      context: ./BE
+      dockerfile: Dockerfile
+    container_name: doctors-backend
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - PGHOST=postgres
+      - PGDATABASE=telemed_database
+      - PGUSER=telemed_user
+      - PGPASSWORD=telemed_password
+      - PGPORT=5432
+      - ACCESS_TOKEN_SECRET_KEY=${ACCESS_TOKEN_SECRET_KEY}
+      - ACCESS_TOKEN_EXPIRATION_IN_DAYS=${ACCESS_TOKEN_EXPIRATION_IN_DAYS:-1d}
+      - ACCESS_TOKEN_EXPIRATION_IN_MILLISECONDS=${ACCESS_TOKEN_EXPIRATION_IN_MILLISECONDS:-86400000}
+    ports:
+      - "4000:4000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - doctors-network
+    volumes:
+      - ./BE:/app
+      - /app/node_modules
+
+  # Frontend сервис
+  frontend:
+    build:
+      context: ./telemedapp
+      dockerfile: Dockerfile
+    container_name: doctors-frontend
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://backend:4000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - doctors-network
+
+networks:
+  doctors-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
