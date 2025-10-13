@@ -1,0 +1,28 @@
+node_modules
+.next
+.git
+.gitignore
+<<<<<<< HEAD:telemedapp/.dockerignore
+.env
+.env.local
+.env.*.local
+README.md
+.vscode
+.idea
+*.md
+.DS_Store
+out
+coverage
+.nyc_output
+dist
+build
+*.log
+.vercel
+yarn-error.log
+=======
+*.md
+npm-debug.log
+.vercel
+yarn.lock
+package-lock.json
+>>>>>>> d527880 (ru language):frontend/.dockerignore
