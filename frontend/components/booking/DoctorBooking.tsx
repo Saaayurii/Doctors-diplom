@@ -11,13 +11,13 @@ import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import type { Doctor } from "@/types";
 
 const dayCodes: { [key: string]: string } = {
-  "1": "Saturday",
-  "2": "Sunday",
-  "3": "Monday",
-  "4": "Tuesday",
-  "5": "Wednesday",
-  "6": "Thursday",
-  "7": "Friday",
+  "1": "Суббота",
+  "2": "Воскресенье",
+  "3": "Понедельник",
+  "4": "Вторник",
+  "5": "Среда",
+  "6": "Четверг",
+  "7": "Пятница",
 };
 
 const DoctorBooking = () => {

@@ -1,11 +1,11 @@
 const dayCodes: { [key: string]: string } = {
-  "1": "Saturday",
-  "2": "Sunday",
-  "3": "Monday",
-  "4": "Tuesday",
-  "5": "Wednesday",
-  "6": "Thursday",
-  "7": "Friday",
+  "1": "Суббота",
+  "2": "Воскресенье",
+  "3": "Понедельник",
+  "4": "Вторник",
+  "5": "Среда",
+  "6": "Четверг",
+  "7": "Пятница",
 };
 
 const timeSlotCodes: { [key: string]: string } = {
@@ -24,8 +24,8 @@ const timeSlotCodes: { [key: string]: string } = {
 };
 
 const typeCodes: Record<string, string> = {
-  L: "Online",
-  S: "Onsite",
+  L: "Онлайн",
+  S: "На месте",
 };
 export const formatDoctorAvailabilities = (slotsString: string) => {
   const availabilityMap: Record<

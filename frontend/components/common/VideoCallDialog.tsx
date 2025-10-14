@@ -78,7 +78,7 @@ const VideoCallDialog: React.FC<VideoCallDialogProps> = ({
 
   return (
     <Dialog
-      header="Video Call"
+      header="Видеозвонок"
       visible={isOpen}
       onHide={onHide}
       modal={true}
@@ -89,13 +89,13 @@ const VideoCallDialog: React.FC<VideoCallDialogProps> = ({
         <div style={videoContainerStyle}>
           <div style={navStyle}>
             <p style={{ fontSize: 20, width: 200 }}>
-              You're {isHost ? "a host" : "an audience"}
+              Вы {isHost ? "ведущий" : "зритель"}
             </p>
             <p style={buttonStyle} onClick={() => setHost(!isHost)}>
-              Change Role
+              Сменить роль
             </p>
             <p style={buttonStyle} onClick={() => setPinned(!isPinned)}>
-              Change Layout
+              Сменить макет
             </p>
           </div>
           {/* AgoraUIKit Video Call Integration */}
@@ -116,7 +116,7 @@ const VideoCallDialog: React.FC<VideoCallDialogProps> = ({
               }}
             />
           ) : (
-            <p className="text-red-600">Failed to load Agora components.</p>
+            <p className="text-red-600">Не удалось загрузить компоненты Agora.</p>
           )}
         </div>
       </div>

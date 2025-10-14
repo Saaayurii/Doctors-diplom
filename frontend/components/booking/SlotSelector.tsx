@@ -22,19 +22,19 @@ const SlotSelector: React.FC<SlotSelectorProps> = ({
 }) => (
   <div className="flex gap-4 flex-col">
     <div className="flex justify-between items-center mb-4">
-      <h3 className="text-sm lg:text-xl font-semibold">Select time slots:</h3>
+      <h3 className="text-sm lg:text-xl font-semibold">Выберите временные слоты:</h3>
       <div className="text-blue-600 font-bold text-xs lg:text-base">
-        {selectedDate?.slots.length} available time slots
+        {selectedDate?.slots.length} доступных временных слотов
       </div>
     </div>
     {availableDates.length === 0 ? (
       <p className="text-red-500 text-center mt-6 text-xs md:text-base italic">
-        No available dates for booking at the moment. <br />
-        <br /> Please try again later.
+        На данный момент нет доступных дат для бронирования. <br />
+        <br /> Пожалуйста, попробуйте позже.
       </p>
     ) : availableDates.length === 1 && availableDates[0].date === "loading" ? (
       <p className="text-blue-600 text-center mt-6 text-xs md:text-base italic">
-        Loading available dates...
+        Загрузка доступных дат...
       </p>
     ) : (
       <div className="overflow-y-hidden hover:overflow-y-auto h-52 py-4">
@@ -73,12 +73,12 @@ const SlotSelector: React.FC<SlotSelectorProps> = ({
               ))
             ) : (
               <p className="text-red-500 text-center mt-6 text-xs md:text-base italic">
-                No time slots available on this day, Try another day.
+                На этот день нет доступных временных слотов. Попробуйте другой день.
               </p>
             )
           ) : (
             <p className="text-blue-600 text-center mt-6 text-xs md:text-base italic">
-              Choose a date to see available time slots.
+              Выберите дату, чтобы увидеть доступные временные слоты.
             </p>
           )}
         </div>

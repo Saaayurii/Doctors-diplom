@@ -82,7 +82,7 @@ const WeekCalendar: React.FC<WeekCalendarProps> = ({
     <div className="flex flex-col gap-2 mb-4 ">
       <div className="flex flex-row items-center mb-4 ">
         <h3 className="text-xs md:text-sm lg:text-lg font-bold">
-          Select date:
+          Выберите дату:
         </h3>
         <div className="mx-auto flex justify-evenly items-center">
           <button

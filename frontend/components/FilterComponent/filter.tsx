@@ -170,7 +170,7 @@ const FilterComponent = ({
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DatePicker"]}>
                     <DatePicker
-                      label="Choose a date"
+                      label="Выберите дату"
                       sx={{ width: 1, borderRadius: 4 }}
                       open={open2}
                       onChange={handleChangeDate2}
@@ -419,7 +419,7 @@ const FilterComponent = ({
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DatePicker"]}>
                     <DatePicker
-                      label="Choose a date"
+                      label="Выберите дату"
                       sx={{ width: 1, borderRadius: 4 }}
                       open={open2}
                       onChange={handleChangeDate2}

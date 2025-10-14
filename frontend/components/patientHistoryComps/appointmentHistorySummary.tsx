@@ -12,7 +12,7 @@ const AppointmentHistorySummary = ({
   return (
     <div className="col-span-2 grid grid-cols-2 gap-4">
       <h2 className="col-span-2 text-lg font-semibold p-4">
-        Past Appointments:
+        Прошедшие приемы:
       </h2>
       {appointmentHistoryCards}
     </div>

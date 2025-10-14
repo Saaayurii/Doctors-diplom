@@ -71,7 +71,7 @@ const AppointmentDetailsPage = () => {
                 : "hover:bg-[#035fe9] hover:text-white"
             } rounded-tl-lg`}
           >
-            Appointment Details
+            Детали приема
           </div>
           <div
             onClick={() => handleTabClick("medications")}
@@ -81,7 +81,7 @@ const AppointmentDetailsPage = () => {
                 : "hover:bg-[#035fe9] hover:text-white"
             }`}
           >
-            Medications
+            Препараты
           </div>
         </div>
         <div className="col-span-2 flex flex-col overflow-y-auto space-y-4 p-4">
@@ -93,19 +93,19 @@ const AppointmentDetailsPage = () => {
                 {appointment.doctor_last_name}
               </p>
               <p>
-                <strong>Specialization:</strong>{" "}
+                <strong>Специализация:</strong>{" "}
                 {appointment.doctor_specialization}
               </p>
               <p>
-                <strong>Date:</strong>{" "}
+                <strong>Дата:</strong>{" "}
                 {formatDateString(appointment.doctor_availability_day_hour)}
               </p>
               <div>
-                <strong>Complaint:</strong>{" "}
+                <strong>Жалоба:</strong>{" "}
                 {appointment.appointment_complaint ? (
                   <ReadMore text={appointment.appointment_complaint} />
                 ) : (
-                  "N/A"
+                  "Н/Д"
                 )}
               </div>
               <>
@@ -116,15 +116,15 @@ const AppointmentDetailsPage = () => {
                       <div key={index} className="space-y-4">
                         <div>
                           <p>
-                            <strong>Diagnosis:</strong>{" "}
+                            <strong>Диагноз:</strong>{" "}
                             {result.appointment_diagnosis ||
-                              "No Diagnosis Available"}
+                              "Диагноз недоступен"}
                           </p>
                         </div>
                         <div>
                           <p>
-                            <strong>Report:</strong>{" "}
-                            {result.appointment_report || "No Report Available"}
+                            <strong>Отчет:</strong>{" "}
+                            {result.appointment_report || "Отчет недоступен"}
                           </p>
                         </div>
                       </div>
@@ -133,10 +133,10 @@ const AppointmentDetailsPage = () => {
                 ) : (
                   <div className="flex flex-col space-y-4">
                     <p>
-                      <strong>Diagnosis:</strong> No Diagnosis Available
+                      <strong>Диагноз:</strong> Диагноз недоступен
                     </p>
                     <p>
-                      <strong>Report:</strong> No Report Available
+                      <strong>Отчет:</strong> Отчет недоступен
                     </p>
                   </div>
                 )}
@@ -145,32 +145,31 @@ const AppointmentDetailsPage = () => {
                 {appointment.treatmentPlan ? (
                   <div className="flex flex-col space-y-4">
                     <p>
-                      <strong>Operations:</strong>{" "}
+                      <strong>Операции:</strong>{" "}
                       {appointment.treatmentPlan.treatment_plan_operations ||
-                        "No Operations Available"}
+                        "Операции недоступны"}
                     </p>
                     <p>
-                      <strong>Speciality Referral:</strong>{" "}
+                      <strong>Направление к специалисту:</strong>{" "}
                       {appointment.treatmentPlan.speciality_referral ||
-                        "No Speciality Referral"}
+                        "Направление отсутствует"}
                     </p>
                     <p>
-                      <strong>Referral Notes:</strong>{" "}
+                      <strong>Примечания к направлению:</strong>{" "}
                       {appointment.treatmentPlan.referral_notes ||
-                        "No Referral Notes"}
+                        "Примечания отсутствуют"}
                     </p>
                   </div>
                 ) : (
                   <div className="flex flex-col space-y-4">
                     <p>
-                      <strong>Operations:</strong> No Operations Available
+                      <strong>Операции:</strong> Операции недоступны
                     </p>
                     <p>
-                      <strong>Speciality Referral:</strong> No Speciality
-                      Referral
+                      <strong>Направление к специалисту:</strong> Направление отсутствует
                     </p>
                     <p>
-                      <strong>Referral Notes:</strong> No Referral Notes
+                      <strong>Примечания к направлению:</strong> Примечания отсутствуют
                     </p>
                   </div>
                 )}
@@ -182,14 +181,14 @@ const AppointmentDetailsPage = () => {
             <>
               <div className="flex flex-col space-y-6">
                 <p className="text-sm md:text-lg font-bold">
-                  Prescribed Medications:
+                  Назначенные препараты:
                 </p>
                 {appointment.medications &&
                 appointment.medications.length > 0 ? (
                   <MedicationTable medicationList={appointment.medications} />
                 ) : (
                   <p className="italic text-sm md:text-lg">
-                    No medications prescribed
+                    Препараты не назначены
                   </p>
                 )}
               </div>

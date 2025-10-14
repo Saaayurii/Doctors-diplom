@@ -69,7 +69,7 @@ const AddAppointmentResult = () => {
 
     if (!drugName || !dose || !startDate || !endDate) {
       alert(
-        "Please fill in all required fields (Drug Name, Dose, Start Date, End Date)",
+        "Пожалуйста, заполните все обязательные поля (Название препарата, Доза, Дата начала, Дата окончания)",
       );
       return;
     }
@@ -95,19 +95,19 @@ const AddAppointmentResult = () => {
   const handleUploadPrescription = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!diagnosisData.diagnosis) {
-      alert("Please Add Diagnosis Before Uploading!");
+      alert("Пожалуйста, добавьте диагноз перед загрузкой!");
       return;
     }
     if (!diagnosisData.operations) {
-      alert("Please Add Operations Before Uploading!");
+      alert("Пожалуйста, добавьте операции перед загрузкой!");
       return;
     }
     if (!diagnosisData.report) {
-      alert("Please Add Report Before Uploading!");
+      alert("Пожалуйста, добавьте отчет перед загрузкой!");
       return;
     }
     if (finalMedication.length === 0) {
-      alert("Please Add At Least One Medication Before Uploading!");
+      alert("Пожалуйста, добавьте хотя бы один препарат перед загрузкой!");
       return;
     }
 
@@ -135,7 +135,7 @@ const AddAppointmentResult = () => {
         },
       );
       if (!response.ok) {
-        throw new Error("Failed to upload prescription");
+        throw new Error("Не удалось загрузить рецепт");
       }
       const data = await response.json();
       console.log("Prescription uploaded successfully:", data);
@@ -169,34 +169,34 @@ const AddAppointmentResult = () => {
           <div className="bg-white flex flex-col space-y-6 w-[80%] h-[80%] md:w-[60%] lg:w-[50%] overflow-y-auto rounded-2xl z-20">
             <div className="flex justify-center items-center sticky top-0 bg-white z-2 p-2 border-b-[1px] border-[#035fe9]">
               <div className="text-[#035fe9] font-bold text-xl text-center">
-                Add a Prescription
+                Добавить рецепт
               </div>
             </div>
             <div className="grow flex flex-col space-y-4 px-4 overflow-x-auto">
               {prescriptionUploaded ? (
                 <div className="flex flex-col gap-7 justify-center items-center h-full pb-16">
                   <p className="text-center font-semibold text-xl">
-                    Does This Patient Need A Follow Up Appointment?
+                    Требуется ли этому пациенту повторный прием?
                   </p>
                   <div className="flex flex-wrap justify-center gap-3">
                     <Link href={`/doctors/${doctorId}`}>
                       <button className="bg-teal-500 rounded-xl p-3 font-semibold text-white hover:bg-teal-800 transition-colors w-48">
-                        Schedule A Follow Up
+                        Запланировать повторный прием
                       </button>
                     </Link>
                     <Link href="/doctorProfile/appointments">
                       <button className="bg-stone-400 rounded-xl p-3 font-semibold text-white hover:bg-stone-500 transition-colors w-48">
-                        Skip
+                        Пропустить
                       </button>
                     </Link>
                   </div>
                 </div>
               ) : (
                 <form>
-                  <h4 className="font-semibold mb-2">Add Diagnosis</h4>
+                  <h4 className="font-semibold mb-2">Добавить диагноз</h4>
                   <div className="mb-2">
                     <label htmlFor="diagnosis" className="block font-medium">
-                      Diagnosis<span className="text-red-500">*</span>
+                      Диагноз<span className="text-red-500">*</span>
                     </label>
                     <input
                       id="diagnosis"
@@ -210,7 +210,7 @@ const AddAppointmentResult = () => {
                   </div>
                   <div className="mb-2">
                     <label htmlFor="operations" className="block font-medium">
-                      Operations<span className="text-red-500">*</span>
+                      Операции<span className="text-red-500">*</span>
                     </label>
                     <input
                       id="operations"
@@ -224,7 +224,7 @@ const AddAppointmentResult = () => {
                   </div>
                   <div className="mb-2">
                     <label htmlFor="report" className="block font-medium">
-                      Report<span className="text-red-500">*</span>
+                      Отчет<span className="text-red-500">*</span>
                     </label>
                     <input
                       id="report"
@@ -241,7 +241,7 @@ const AddAppointmentResult = () => {
                       htmlFor="specialityReferral"
                       className="block font-medium"
                     >
-                      Speciality Referral
+                      Направление к специалисту
                     </label>
                     <input
                       id="specialityReferral"
@@ -257,7 +257,7 @@ const AddAppointmentResult = () => {
                       htmlFor="specialityReferralNotes"
                       className="block font-medium"
                     >
-                      Speciality Referral Notes
+                      Примечания к направлению
                     </label>
                     <input
                       id="specialityReferralNotes"
@@ -278,10 +278,10 @@ const AddAppointmentResult = () => {
                   className="flex flex-col space-y-4"
                 >
                   <div className="border p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Add Medication</h4>
+                    <h4 className="font-semibold mb-2">Добавить препарат</h4>
                     <div className="mb-2">
                       <label htmlFor="name" className="block font-medium">
-                        Name<span className="text-red-500">*</span>
+                        Название<span className="text-red-500">*</span>
                       </label>
                       <input
                         id="name"
@@ -295,7 +295,7 @@ const AddAppointmentResult = () => {
                     </div>
                     <div className="mb-2">
                       <label htmlFor="dose" className="block font-medium">
-                        Dose<span className="text-red-500">*</span>
+                        Доза<span className="text-red-500">*</span>
                       </label>
                       <input
                         id="dose"
@@ -309,7 +309,7 @@ const AddAppointmentResult = () => {
                     </div>
                     <div className="mb-2">
                       <label htmlFor="start" className="block font-medium">
-                        Start Date<span className="text-red-500">*</span>
+                        Дата начала<span className="text-red-500">*</span>
                       </label>
                       <input
                         id="start"
@@ -323,7 +323,7 @@ const AddAppointmentResult = () => {
                     </div>
                     <div className="mb-2">
                       <label htmlFor="end" className="block font-medium">
-                        End Date<span className="text-red-500">*</span>
+                        Дата окончания<span className="text-red-500">*</span>
                       </label>
                       <input
                         id="end"
@@ -337,7 +337,7 @@ const AddAppointmentResult = () => {
                     </div>
                     <div className="mb-2">
                       <label htmlFor="notes" className="block font-medium">
-                        Notes
+                        Примечания
                       </label>
                       <textarea
                         id="notes"
@@ -354,7 +354,7 @@ const AddAppointmentResult = () => {
                       type="submit"
                       className="text-white rounded-full px-4 py-2 bg-[#035fe9] flex items-center space-x-2 hover:scale-105 transition"
                     >
-                      <FaPlus /> <span>Add Medication</span>
+                      <FaPlus /> <span>Добавить препарат</span>
                     </button>
                   </div>
                 </form>
@@ -363,14 +363,14 @@ const AddAppointmentResult = () => {
               {finalMedication.length > 0 && (
                 <div className="mt-4">
                   <h4 className="font-semibold text-lg mb-2">
-                    Added Medications
+                    Добавленные препараты
                   </h4>
                   <ul className="list-disc list-inside space-y-4">
                     {finalMedication.map((med, index) => (
                       <li key={index}>
                         <strong>{med.drugName}</strong> - {med.dose},{" "}
-                        {med.startDate} to {med.endDate}
-                        {med.note && `, Notes: ${med.note}`}
+                        {med.startDate} до {med.endDate}
+                        {med.note && `, Примечания: ${med.note}`}
                       </li>
                     ))}
                   </ul>
@@ -385,13 +385,13 @@ const AddAppointmentResult = () => {
                   onClick={handleUploadPrescription}
                   className="text-white rounded-full px-4 py-2 bg-[#035fe9] flex items-center space-x-2 m-4 hover:scale-105 transition"
                 >
-                  <FaUpload /> <span>Upload Result</span>
+                  <FaUpload /> <span>Загрузить результат</span>
                 </button>
                 <button
                   onClick={() => {
                     if (
                       window.confirm(
-                        "Are you sure you want to discard the current result?",
+                        "Вы уверены, что хотите отменить текущий результат?",
                       )
                     ) {
                       setOpenModalAdd(false);
@@ -407,7 +407,7 @@ const AddAppointmentResult = () => {
                   }}
                   className="text-gray-700 rounded-full px-4 py-2 bg-gray-200 flex items-center space-x-2 m-4 hover:scale-105 transition"
                 >
-                  <span>Cancel</span>
+                  <span>Отмена</span>
                 </button>
               </div>
             )}

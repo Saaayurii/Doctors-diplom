@@ -213,17 +213,17 @@ const Doctors = () => {
     <main className="space-y-12 mb-4">
       <ReadyTherapist />
       <h1 className="text-[#035fe9] font-bold text-[40px] text-center">
-        Our Doctors
+        Наши врачи
       </h1>
       <section className="max-w-full md:max-w-[90%] lg:max-w-[85%] xl:max-w-[75%] mx-auto grid grid-cols-2 lg:grid-cols-3 gap-4 h-lvh">
-        <SearchBar placeholder="Doctor name or title" />
+        <SearchBar placeholder="Имя врача или специальность" />
         <SortDropDown
           handleChangeFilter={handleChangeFilterDrop}
           options={[
-            { value: "ascFees", label: "Fees Low to High" },
-            { value: "descFees", label: "Fees High to Low" },
-            { value: "rating", label: "Top Rated" },
-            { value: "reset", label: "Reset" },
+            { value: "ascFees", label: "Цена: по возрастанию" },
+            { value: "descFees", label: "Цена: по убыванию" },
+            { value: "rating", label: "Лучшие оценки" },
+            { value: "reset", label: "Сбросить" },
           ]}
           name="sort"
           id="sort"
@@ -231,7 +231,7 @@ const Doctors = () => {
         />
         <div className="lg:hidden ml-4 text-[#035fe9]">
           <button onClick={handleOpenModal} className="flex items-center">
-            Filters <IoFilter className="w-4 h-4 ml-2" />
+            Фильтры <IoFilter className="w-4 h-4 ml-2" />
           </button>
         </div>
         <FilterComponent

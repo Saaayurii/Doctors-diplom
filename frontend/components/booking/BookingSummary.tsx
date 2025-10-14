@@ -138,10 +138,10 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
               <span className="md:px-4 md:py-2 px-2 py-1 rounded-lg bg-green-600 hover:bg-green-700 text-white">
                 {selectedDate?.date} {selectedSlot}
               </span>
-              <span>Slot is selected</span>
+              <span>Слот выбран</span>
             </div>
           ) : (
-            "No slot selected"
+            "Слот не выбран"
           )}
         </div>
       </div>
@@ -151,10 +151,10 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
         onClick={() => bookAppointment()}
       >
         {loading
-          ? "Sending..."
-          : `Book Now ${
+          ? "Отправка..."
+          : `Забронировать сейчас ${
               doctor?.fees60min && doctor?.fees30min
-                ? `for ${
+                ? `за ${
                     selectedDuration === 60
                       ? `${doctor.fees60min} EGP`
                       : `${doctor.fees30min} EGP`

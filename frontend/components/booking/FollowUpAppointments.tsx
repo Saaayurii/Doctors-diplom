@@ -49,7 +49,7 @@ const FollowUpAppointments: React.FC<FollowUpAppointmentsProps> = ({
             handleFollowUpClick();
           }}
         />
-        <span className="ml-2">Follow up</span>
+        <span className="ml-2">Повторный прием</span>
       </label>
 
       <Dialog
@@ -63,7 +63,7 @@ const FollowUpAppointments: React.FC<FollowUpAppointmentsProps> = ({
         }}
         header={
           appointments && appointments.length > 0
-            ? "Select Appointment for Follow Up"
+            ? "Выберите прием для повторной записи"
             : ""
         }
         visible={showDialog}
@@ -75,13 +75,13 @@ const FollowUpAppointments: React.FC<FollowUpAppointmentsProps> = ({
               onClick={handleSaveAppointment}
               disabled={!selectedAppointment}
             >
-              Save
+              Сохранить
             </button>
             <button
               className="bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold disabled:opacity-50"
               onClick={handleSaveAppointment}
             >
-              back
+              Назад
             </button>
           </div>
         }
@@ -96,20 +96,20 @@ const FollowUpAppointments: React.FC<FollowUpAppointmentsProps> = ({
                   <div className="flex justify-between items-center">
                     <div>
                       <p>
-                        <strong>Specialization:</strong>{" "}
+                        <strong>Специализация:</strong>{" "}
                         {appointment.doctor_specialization}
                       </p>
                       <p>
-                        <strong>Appointment Type:</strong>{" "}
+                        <strong>Тип приема:</strong>{" "}
                         {appointment.appointment_type}
                       </p>
                       <p>
-                        <strong>Date & Time:</strong>{" "}
+                        <strong>Дата и время:</strong>{" "}
                         {formatDate(appointment.doctor_availability_day_hour)}
                       </p>
                       <p>
-                        <strong>Duration:</strong>{" "}
-                        {appointment?.appointment_duration} min
+                        <strong>Длительность:</strong>{" "}
+                        {appointment?.appointment_duration} мин
                       </p>
                     </div>
                     <button
@@ -121,7 +121,7 @@ const FollowUpAppointments: React.FC<FollowUpAppointmentsProps> = ({
                       }
                       onClick={() => handleAppointmentSelect(appointment)}
                     >
-                      Select
+                      Выбрать
                     </button>
                   </div>
                 </Card>
@@ -129,7 +129,7 @@ const FollowUpAppointments: React.FC<FollowUpAppointmentsProps> = ({
             ))
           ) : (
             <p className="mx-auto  text-red-500 text-center mt-6 text-xs md:text-base italic">
-              No appointments found
+              Приемы не найдены
             </p>
           )}
         </ul>

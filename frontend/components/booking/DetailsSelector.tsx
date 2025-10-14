@@ -18,7 +18,7 @@ const DetailsSelector: React.FC<DetailsSelectorProps> = ({
   const [selectedAppointment, setSelectedAppointment] = useState<any>(null);
   return (
     <div className="bg-white rounded-3xl shadow-md p-6 w-full">
-      <h3 className="text-xl font-semibold mb-4">Select session details:</h3>
+      <h3 className="text-xl font-semibold mb-4">Выберите детали сеанса:</h3>
 
       <div className="flex flex-row items-center gap-6">
         <div className="flex flex-col items-center">
@@ -30,7 +30,7 @@ const DetailsSelector: React.FC<DetailsSelectorProps> = ({
               checked={selectedDuration === 60}
               onChange={() => handleDurationChange(60)}
             />
-            <span className="ml-2">60 Min</span>
+            <span className="ml-2">60 мин</span>
           </label>
           <label className=" flex items-center">
             <input
@@ -40,7 +40,7 @@ const DetailsSelector: React.FC<DetailsSelectorProps> = ({
               checked={selectedDuration === 30}
               onChange={() => handleDurationChange(30)}
             />
-            <span className="ml-2">30 Min</span>
+            <span className="ml-2">30 мин</span>
           </label>
         </div>
         <div className="flex items-center flex-col">
@@ -52,7 +52,7 @@ const DetailsSelector: React.FC<DetailsSelectorProps> = ({
               checked={appointmentState === "First_time"}
               onChange={() => setAppointmentState("First_time")}
             />
-            <span className="ml-2">First time</span>
+            <span className="ml-2">Первый прием</span>
           </label>
           <FollowUpAppointments
             appointments={appointments}

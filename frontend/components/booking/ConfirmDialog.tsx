@@ -40,17 +40,17 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
     >
       <div className="flex flex-col h-full">
         <h2 className="text-xl font-semibold text-start">
-          Request Appointment
+          Запросить прием
         </h2>
         <p className="my-6 text-center italic text-gray-600">
-          Are you sure you want to send this appointment request?
+          Вы уверены, что хотите отправить этот запрос на прием?
         </p>
         <textarea
           value={complaint}
           onChange={(e) => {
             setComplaint(e.target.value);
           }}
-          placeholder="Patient's complaint goes here..."
+          placeholder="Жалоба пациента..."
           className="  rounded border p-4"
         />
 
@@ -61,14 +61,14 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
               disabled={loading || complaint === ""}
               className="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {loading ? "Sending..." : "Request"}
+              {loading ? "Отправка..." : "Запросить"}
             </button>
             <button
               onClick={onCancel}
               disabled={loading}
               className=" py-3 px-6 rounded-lg font-semibold bg-red-600 text-white hover:bg-red-800 disabled:opacity-50"
             >
-              Cancel
+              Отмена
             </button>
           </div>
         </div>

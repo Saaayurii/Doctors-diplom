@@ -30,11 +30,11 @@ const AppointmentHistoryCard = ({ appointment }: { appointment: any }) => {
       </div>
       <div>
         <strong>
-          Complaint:
+          Жалоба:
           {" " + appointment.appointment_complaint ? (
             <ReadMore text={appointment.appointment_complaint} />
           ) : (
-            "N/A"
+            "Н/Д"
           )}
         </strong>
       </div>
